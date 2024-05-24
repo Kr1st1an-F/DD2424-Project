@@ -53,8 +53,6 @@ def normalize(X):
 
 if __name__ == "__main__":
     (X_train, y_train), (X_test, y_test) = cifar10.load_data()
-    X_train = normalize(X_train)
-    X_test = normalize(X_test)
     y_train = one_hot(y_train, 10)
     y_test = one_hot(y_test, 10)
 
