@@ -83,7 +83,7 @@ if __name__ == "__main__":
     datagen = ImageDataGenerator(width_shift_range=0.1, height_shift_range=0.1, horizontal_flip=True)
     it_train= datagen.flow(X_train, y_train, batch_size=64)
     steps = int(X_train.shape[0] / 64)
-    history = model.fit(X_train, y_train, steps_per_epochs=steps, epochs=100, validation_data=(X_test, y_test), callbacks=[callback])
+    history = model.fit(it_train, steps_per_epoch=steps, epochs=100, validation_data=(X_test, y_test), callbacks=[callback])
     _, acc = model.evaluate(X_test, y_test)
     print(f"Accuracy {acc * 100.0:.3f}")
 
