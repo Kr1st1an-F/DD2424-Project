@@ -59,18 +59,18 @@ if __name__ == "__main__":
     y_test = one_hot(y_test, 10)
 
     inputs = tf.keras.Input(shape=(32, 32, 3))
-    x = tf.keras.layers.Conv2D(32, (3, 3), activation=relu, kernel_initializer=he_initialization, kernel_regularizer=regularizers.L2(0.001), padding="same")(
+    x = tf.keras.layers.Conv2D(32, (3, 3), activation=relu, kernel_initializer=he_initialization, padding="same")(
         inputs)
-    x = tf.keras.layers.Conv2D(32, (3, 3), activation=relu, kernel_initializer=he_initialization, kernel_regularizer=regularizers.L2(0.001), padding="same")(x)
+    x = tf.keras.layers.Conv2D(32, (3, 3), activation=relu, kernel_initializer=he_initialization, padding="same")(x)
     x = tf.keras.layers.MaxPooling2D((2, 2))(x)
-    x = tf.keras.layers.Conv2D(64, (3, 3), activation=relu, kernel_initializer=he_initialization, kernel_regularizer=regularizers.L2(0.001), padding="same")(x)
-    x = tf.keras.layers.Conv2D(64, (3, 3), activation=relu, kernel_initializer=he_initialization, kernel_regularizer=regularizers.L2(0.001), padding="same")(x)
+    x = tf.keras.layers.Conv2D(64, (3, 3), activation=relu, kernel_initializer=he_initialization, padding="same")(x)
+    x = tf.keras.layers.Conv2D(64, (3, 3), activation=relu, kernel_initializer=he_initialization, padding="same")(x)
     x = tf.keras.layers.MaxPooling2D((2, 2))(x)
-    x = tf.keras.layers.Conv2D(128, (3, 3), activation=relu, kernel_initializer=he_initialization, kernel_regularizer=regularizers.L2(0.001), padding="same")(x)
-    x = tf.keras.layers.Conv2D(128, (3, 3), activation=relu, kernel_initializer=he_initialization, kernel_regularizer=regularizers.L2(0.001), padding="same")(x)
+    x = tf.keras.layers.Conv2D(128, (3, 3), activation=relu, kernel_initializer=he_initialization, padding="same")(x)
+    x = tf.keras.layers.Conv2D(128, (3, 3), activation=relu, kernel_initializer=he_initialization, padding="same")(x)
     x = tf.keras.layers.MaxPooling2D((2, 2))(x)
     x = tf.keras.layers.Flatten()(x)
-    x = tf.keras.layers.Dense(128, activation=relu, kernel_initializer=he_initialization, kernel_regularizer=regularizers.L2(0.001))(x)
+    x = tf.keras.layers.Dense(128, activation=relu, kernel_initializer=he_initialization)(x)
     x = tf.keras.layers.Dense(10, activation=softmax)(x)
 
     model = tf.keras.Model(inputs=inputs, outputs=x)
