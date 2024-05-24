@@ -74,7 +74,7 @@ if __name__ == "__main__":
 
     model = tf.keras.Model(inputs=inputs, outputs=x)
 
-    model.compile(optimizer=tf.keras.optimizers.SGD(), loss="categorical_crossentropy", metrics=["accuracy"])
+    model.compile(optimizer=tf.keras.optimizers.SGD(learning_rate=0.001, momentum=0.9), loss="categorical_crossentropy", metrics=["accuracy"])
 
     callback = tf.keras.callbacks.EarlyStopping(monitor="val_loss", patience=10)
     history = model.fit(X_train, y_train, epochs=100, validation_data=(X_test, y_test), callbacks=[callback])
