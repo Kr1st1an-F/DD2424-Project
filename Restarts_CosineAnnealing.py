@@ -88,7 +88,7 @@ if __name__ == "__main__":
     model = tf.keras.Model(inputs=inputs, outputs=x)
 
     lr_restarts_cosine_decay = tf.keras.optimizers.schedules.CosineDecayRestarts(
-      initial_learning_rate=0.1, first_decay_steps=1000, t_mul=2.0, m_mul=1.0
+      initial_learning_rate=0.001, first_decay_steps=1000, t_mul=2.0, m_mul=1.0
     )
 
     model.compile(optimizer=tf.keras.optimizers.Adam(learning_rate=lr_restarts_cosine_decay), loss="categorical_crossentropy", metrics=["accuracy"])

@@ -88,7 +88,7 @@ if __name__ == "__main__":
     model = tf.keras.Model(inputs=inputs, outputs=x)
 
     lr_warmup_cosine_decay = tf.keras.optimizers.schedules.CosineDecay(
-      initial_learning_rate=0.1, decay_steps=1000, warmup_target=0.1, warmup_steps=1000
+      initial_learning_rate=0.001, decay_steps=1000, warmup_target=0.1, warmup_steps=1000
     )
 
     model.compile(optimizer=tf.keras.optimizers.Adam(learning_rate=lr_warmup_cosine_decay), loss="categorical_crossentropy", metrics=["accuracy"])

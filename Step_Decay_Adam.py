@@ -88,7 +88,7 @@ if __name__ == "__main__":
     model = tf.keras.Model(inputs=inputs, outputs=x)
 
     lr_exponential_decay = tf.keras.optimizers.schedules.ExponentialDecay(
-      initial_learning_rate=0.1, decay_steps=100000, decay_rate=0.96, staircase=True)
+      initial_learning_rate=0.001, decay_steps=100000, decay_rate=0.96, staircase=True)
 
     model.compile(optimizer=tf.keras.optimizers.Adam(learning_rate=lr_exponential_decay), loss="categorical_crossentropy", metrics=["accuracy"])
 
